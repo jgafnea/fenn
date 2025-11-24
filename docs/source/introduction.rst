@@ -1,8 +1,6 @@
 Introduction
 ============
 
-SMLE is a lightweight Python framework that automates the "boring stuff" in Machine Learning projects so you can focus on the model. It handles configuration parsing, logging setup, and experiment tracking in a minimal, opinionated way.
-
 Why SMLE?
 ---------
 
@@ -10,24 +8,25 @@ Why SMLE?
 * **Instant Logging:** All print statements and configurations are captured to local logs and compatible remote trackers.
 * **Remote Monitoring:** Native integration with `Weights & Biases (WandB) <https://wandb.ai/>`_ lets you monitor experiments from anywhere.
 
-Security & WandB Configuration
-------------------------------
-
-When using the ``wandb`` section for remote logging, the API key is read from ``smle.yaml``. To avoid exposing credentials, do not commit ``smle.yaml`` or log files with real keys to any public repository.
-
-* Add ``smle.yaml`` and ``*.log`` to ``.gitignore``.
-* Remove the ``wandb`` section entirely if remote logging is not required.
+.. tip::
+    If you are using SMLE for the first time, start with the ``Quickstart`` section to scaffold a project, configure your first ``smle.yaml``, and run an experiment end-to-end in a few minutes.
 
 Contributing
 ------------
 
-Contributions are welcome. Fork the repository, create a feature branch, commit your changes, push the branch, and open a pull request with a clear description of the improvement.
+Contributions are welcome! If you have ideas for improvements, feel free to fork the repository and submit a pull request.
+
+#. Fork the Project
+#. Create your Feature Branch (``git checkout -b feature/AmazingFeature``)
+#. Commit your Changes (``git commit -m 'Add some AmazingFeature'``)
+#. Push to the Branch (``git push origin feature/AmazingFeature``)
+#. Open a Pull Request
 
 Roadmap
 -------
 
 🚀 High Priority
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 High-priority goals include richer documentation, safer key management (for example, through ``.env`` support), and multiple or layered YAML configurations.
 
