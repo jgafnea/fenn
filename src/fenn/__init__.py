@@ -1,8 +1,9 @@
 from colorama import Fore, Style
-from typing import Callable, Optional, Any
+from typing import Callable, Optional, Any, Iterable, Type
 
 from fenn.args import Parser
 from fenn.logging import Logger
+from fenn.notification import Notifier, Service
 from fenn.secrets.keystore import KeyStore
 from fenn.utils import generate_haiku_id
 
@@ -18,12 +19,8 @@ class FENN:
 
         self._parser: Parser = Parser()
         self._keystore: KeyStore = KeyStore()
-<<<<<<< HEAD
-        self._logger: Logger = Logger()
-=======
-        self._logger: Logger = Logger.get_instance()   # SINGLETON
+        self._logger: Logger = Logger.get_instance()  # SINGLETON
         self._notifier: Notifier = Notifier()
->>>>>>> 3d275e6 (Add diff.txt to .gitignore)
         self._config_file: str = None
 
         self._entrypoint_fn: Optional[Callable] = None
@@ -73,8 +70,6 @@ class FENN:
         finally:
             self._logger.stop()
 
-<<<<<<< HEAD
-=======
     def register_notification_services(
         self,
         services: Iterable[Type[Service]],
@@ -92,7 +87,6 @@ class FENN:
     def notify(self, message: str):
         self._notifier.notify(message)
 
->>>>>>> 3d275e6 (Add diff.txt to .gitignore)
     @property
     def config_file(self) -> str:
         return self._config_file
@@ -103,3 +97,4 @@ class FENN:
         The method to set the YAML file.
         """
         self._config_file = config_file
+
