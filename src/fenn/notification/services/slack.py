@@ -2,8 +2,6 @@ import requests
 
 from fenn.notification.service import Service
 
-# from fenn.settings import settings
-
 
 class Slack(Service):
     """Slack notification service using webhooks."""
@@ -12,7 +10,6 @@ class Slack(Service):
         """Initialize Slack service."""
         super().__init__()
         self._slack_webhook_url = self._keystore.get_key("SLACK_WEBHOOK_URL")
-        # self._slack_webhook_url = settings.slack_webhook_url
 
     def send_notification(self, message: str) -> None:
         """Send notification to Slack channel.
@@ -32,10 +29,3 @@ class Slack(Service):
             raise requests.exceptions.RequestException(
                 f"Failed to send Slack notification: {err}"
             ) from err
-
-
-# if __name__ == "__main__":
-#     s = Slack()
-#     message = "hello"
-#     s.send_notification(message)
-#     print(f"sent: {message}")
